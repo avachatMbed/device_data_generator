@@ -10,4 +10,8 @@ public class GenerateAndSend {
     public static void main(String argv[]) {
         log.debug("Hello World");
     }
+
+    private GenerateAndSend () {
+
+    }
 }
