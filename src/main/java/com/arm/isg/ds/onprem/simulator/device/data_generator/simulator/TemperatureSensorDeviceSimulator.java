@@ -2,9 +2,11 @@ package com.arm.isg.ds.onprem.simulator.device.data_generator.simulator;
 
 import com.arm.isg.ds.onprem.simulator.device.data_generator.data.DataItem;
 import com.arm.isg.ds.onprem.simulator.device.data_generator.data.ResourceDataItem;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import lombok.Getter;
 
+import java.util.List;
 import java.util.Random;
 
 public class TemperatureSensorDeviceSimulator implements DeviceSimulator {
@@ -23,12 +25,12 @@ public class TemperatureSensorDeviceSimulator implements DeviceSimulator {
 
     @Override
     public ResourceDataItem generateResourceDataItem() {
-        return null;
+        return new ResourceDataItem("temperature_resource_1", generateDataItem());
     }
 
-    private DataItem generateDataItem() {
-        return new DataItem("temp", "temperature", "Fahrenheit",
-                ImmutableMap.of("value", generateTemperature()));
+    private List<DataItem> generateDataItem() {
+        return ImmutableList.of(new DataItem("temp", "temperature", "Fahrenheit",
+                ImmutableMap.of("value", generateTemperature())));
     }
 
     private int generateTemperature() {
