@@ -31,7 +31,7 @@ public class DataGeneratorApplication implements CommandLineRunner {
 		GenerateAndSend generateAndSend = new GenerateAndSend();
 		generateAndSend.run();
 
-		log.debug("Exiting Device : DataGenerator");
+		log.debug("Exiting Device DataGenerator");
 		System.exit(SpringApplication.exit(context));
 	}
 }

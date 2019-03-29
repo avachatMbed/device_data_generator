@@ -17,6 +17,8 @@ public class GenerateAndSend {
 
     private static final Logger log = LoggerFactory.getLogger(GenerateAndSend.class);
 
+    private static final String FLUENTD_PUBLISHER_EC2 = "http://ec2-18-216-243-125.us-east-2.compute.amazonaws.com:8080/topic.test";
+
     private static final String JSON_DEVICE_ID = "did";
     private static final String JSON_ACCOUNT_ID = "aid";
     private static final String JSON_TIMESTAMP = "ts";
@@ -28,7 +30,7 @@ public class GenerateAndSend {
 
     public GenerateAndSend () {
         this.deviceSimulatorList = ImmutableList.copyOf(initDeviceSimulators());
-        this.dataSender = new HttpDataSender("");
+        this.dataSender = new HttpDataSender(FLUENTD_PUBLISHER_EC2);
     }
 
     public void run() {
